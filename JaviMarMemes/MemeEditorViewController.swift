@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImagePickerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
 {
     // MARK: Variables definitions
     
@@ -200,11 +200,8 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
                         originalImage: imageViewPickedFromGallery.image!,
                         memedImage: image)
         
-        
-        // TODO: see what to do with the meme struct
-        
-        
-        
+        // Add meme struct to the memes array in the Application Delegate
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     
     	
