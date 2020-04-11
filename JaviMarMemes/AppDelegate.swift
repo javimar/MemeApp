@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
@@ -18,8 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     var memes = [Meme]()
     
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
+    {
         // Override point for customization after application launch.
+        
+        
+        
+        let memes = [
+            Meme(topTextField: "TOP", bottomTextField: "WORLD", originalImage: UIImage(named: "LaunchImage")!, memedImage: UIImage(named: "LaunchImage")!),
+            Meme(topTextField: "JAVIER", bottomTextField: "MARTIN", originalImage: UIImage(named: "MemeGenerator_120 copy")!, memedImage: UIImage(named: "MemeGenerator_120 copy")!),
+        ]
+        
+        for meme in memes {
+            self.memes.append(meme)
+        }
+        
+        
         return true
     }
 

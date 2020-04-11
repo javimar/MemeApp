@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
 {
     // MARK: Variables definitions
@@ -17,7 +18,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var topTextView: UITextField!
     @IBOutlet weak var bottomTextView: UITextField!
     @IBOutlet weak var toolBar: UIToolbar!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var navBar: UINavigationItem!
     
     // MARK: Override Application LifeCycle functions
     
@@ -171,9 +173,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: Meme handling
     
-    
-    
-    
     @IBAction func shareMeme(_ sender: Any)
     {
         
@@ -192,7 +191,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     
-    
     func saveMeme(image: UIImage)
     {
         let meme = Meme(topTextField: topTextView.text!,
@@ -209,7 +207,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     {
         // First need to hide toolbar and other views otherwise they'll be in the picture
         toolBar.isHidden = true
-        shareButton.isHidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -219,7 +216,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 
         // Show back the items
         toolBar.isHidden = false
-        shareButton.isHidden = false
             
         return memedImage
     }
